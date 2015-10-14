@@ -1,0 +1,13 @@
+#include<iostream>
+using  namespace std;
+int main() {
+	
+	cout << "input int val:   ";
+	int val;	
+	cin >> val >> val;
+	
+	cout <<"val="<<val<<endl;
+	
+	return 0;
+}
+

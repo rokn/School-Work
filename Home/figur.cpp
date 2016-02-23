@@ -35,7 +35,7 @@ void Line::draw() const
     << "\" y1=\"" << from_.get_y()
     << "\" x2=\"" << to_.get_x()
     << "\" y2=\"" << to_.get_y()
-    << "\"" << get_style() << "/>" << endl;
+    << "\" " << get_style() << "/>" << endl;
 }
 
 void Canvas::add(Shape* shape) {
@@ -43,7 +43,7 @@ void Canvas::add(Shape* shape) {
 }
 
 void Canvas::draw() const {
-    cout << "<svg width=\"" << width_ 
+    cout << "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"" << width_ 
         << "\" height=\"" << height_
         << "\">" << endl;
     content_.draw();

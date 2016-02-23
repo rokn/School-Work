@@ -2,8 +2,8 @@
 
 int main()
 {
-    Board board = Board(10, 10);
+    Board board = Board(20, 20);
     board.generate_maze(board.at(0, 0));
-    board.draw();
+    board.draw(25);
 	return 0;
 }

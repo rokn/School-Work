@@ -59,25 +59,37 @@ CompositeFigure* Cell::draw(int length) const {
 //    cout << -length << " " << 0 << (has_wall(UP) ? " rlineto" : " rmoveto") << endl;
 //    cout << 0 << " " << -length << (has_wall(LEFT) ? " rlineto" : " rmoveto") << endl;
     CompositeFigure* figure = new CompositeFigure();
-    if(has_wall(UP))
+    if(has_wall(DOWN))
     {
         //Point from = Point();
-        figure->add(new Line(Point(col_*length, row_*length), Point((col_+1)*length, row_*length)));
+        Line * line = new Line(Point(col_*length, row_*length), Point((col_+1)*length, row_*length));
+        line->set_property("stroke-width", "3");
+        line->set_property("stroke", "blue");
+        figure->add(line);
     }
     if(has_wall(RIGHT))
     {
         //Point from = Point();
-        figure->add(new Line(Point((col_+1)*length, row_*length), Point((col_+1)*length, (row_+1)*length)));
+        Line * line = new Line(Point((col_+1)*length, row_*length), Point((col_+1)*length, (row_+1)*length));
+        line->set_property("stroke-width", "3");
+        line->set_property("stroke", "blue");
+        figure->add(line);
     }
-    if(has_wall(DOWN))
+    if(has_wall(UP))
     {
         //Point from = Point();
-        figure->add(new Line(Point((col_+1)*length, (row_+1)*length), Point(col_*length, (row_+1)*length)));
+        Line * line = new Line(Point((col_+1)*length, (row_+1)*length), Point(col_*length, (row_+1)*length));
+        line->set_property("stroke-width", "3");
+        line->set_property("stroke", "blue");
+        figure->add(line);
     }
     if(has_wall(LEFT))
     {
         //Point from = Point();
-        figure->add(new Line(Point(col_*length, (row_+1)*length)), Point(col_*length, row_*length)));
+        Line * line = new Line(Point(col_*length, (row_+1)*length), Point(col_*length, row_*length));
+        line->set_property("stroke-width", "3");
+        line->set_property("stroke", "blue");
+        figure->add(line);
     }
     return figure;
 }
@@ -163,7 +175,7 @@ Cell& Board::at(int i, int j) {
 }
 
 void Board::draw(int size) const {
-    Canvas canvas = Canvas(cols_*size, rows_*size);
+    Canvas canvas = Canvas((cols_+1)*size, (rows_+1)*size);
     
         
     for(vector<Cell>::const_iterator it = cells_.begin();

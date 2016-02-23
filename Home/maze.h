@@ -1,9 +1,10 @@
-#ifndef FIGURE_H
-#define FIGURE_H
+#ifndef MAZE_H
+#define MAZE_H
 
 #include <iostream>
 #include <vector>
 #include <cstdlib>
+#include "figure.h"
 
 using namespace std;
 
@@ -53,7 +54,7 @@ class Cell {
     
     Cell* right();
     
-    Cell* down()
+    Cell* down();
     
     Cell* left();
     
@@ -74,7 +75,7 @@ class Board {
     
     public:
     
-    Board(int rows, int cols) : rows_(rows), cols_(cols);
+    Board(int rows, int cols);
     Cell& at(int i, int j);
     
     void draw(int size = 10) const;

@@ -34,7 +34,7 @@ class Styleable {
     
     public:
     
-    Styleable& set_property(string key, string value)
+    Styleable& set_property(string key, string value);
      
     string get_style() const;
 };
